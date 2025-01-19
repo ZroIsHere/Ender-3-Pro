@@ -23,14 +23,29 @@
 //global variable
 Esp3D myesp3d;
 
+int filamentRunOutPin = 14;
+bool filamentRunOut = false;
+
+
 //Setup
 void setup()
 {
+    pinMode(filamentRunOutPin, INPUT);
     myesp3d.begin();
 }
 
 //main loop
 void loop()
 {
+    if (digitalRead(filamentRunOutPin) == LOW && !filamentRunOut){
+      filamentRunOut = true;
+      Serial.println("M412 S1");
+    }
+
+    if (digitalRead(filamentRunOutPin) == HIGH && filamentRunOut){
+      filamentRunOut = false;
+      delay(10000);
+      Serial.println("M412 S1");
+    }
     myesp3d.process();
 }
