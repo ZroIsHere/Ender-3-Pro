@@ -24,6 +24,7 @@
 
 #include "webinterface.h"
 #include "wificonf.h"
+#include "genlinkedlist.h"
 #include <WiFiClient.h>
 #include <WiFiServer.h>
 #include <WiFiUdp.h>
@@ -44,7 +45,6 @@
 #include <esp_ota_ops.h>
 #endif
 
-#include "GenLinkedList.h"
 #include "command.h"
 #include "espcom.h"
 
