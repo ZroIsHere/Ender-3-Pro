@@ -1,5 +1,5 @@
 /*
-  esp3d
+  recovery_service.h -  recovery functions class
 
   Copyright (c) 2014 Luc Lebosse. All rights reserved.
 
@@ -14,16 +14,27 @@
   Lesser General Public License for more details.
 
   You should have received a copy of the GNU Lesser General Public
-  License along with this library; if not, write to the Free Software
+  License along with This code; if not, write to the Free Software
   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-#include "src/core/esp3d.h"
-// global variable
-Esp3D myesp3d;
+#ifndef _RECOVERY_SERVICE_H
+#define _RECOVERY_SERVICE_H
 
-// Setup
-void setup() { myesp3d.begin(); }
+class RecoveryService {
+ public:
+  RecoveryService();
+  ~RecoveryService();
+  bool begin();
+  void end();
+  void handle();
+  bool started();
 
-// main loop
-void loop() { myesp3d.handle(); }
+ private:
+  bool _started;
+  uint32_t _servicetimeout;
+};
+
+extern RecoveryService recovery_service;
+
+#endif  //_RECOVERY_SERVICE_H

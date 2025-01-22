@@ -1,5 +1,5 @@
 /*
-  esp3d
+  esp3d_version.h - ESP3D version file
 
   Copyright (c) 2014 Luc Lebosse. All rights reserved.
 
@@ -14,16 +14,15 @@
   Lesser General Public License for more details.
 
   You should have received a copy of the GNU Lesser General Public
-  License along with this library; if not, write to the Free Software
+  License along with This code; if not, write to the Free Software
   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-#include "src/core/esp3d.h"
-// global variable
-Esp3D myesp3d;
+#ifndef _VERSION_ESP3D_H
+#define _VERSION_ESP3D_H
 
-// Setup
-void setup() { myesp3d.begin(); }
+// version and sources location
+#define FW_VERSION "3.0.0.b1"
+#define REPOSITORY "https://github.com/luc-github/ESP3D/tree/3.0"
 
-// main loop
-void loop() { myesp3d.handle(); }
+#endif  //_VERSION_ESP3D_H

@@ -1,5 +1,5 @@
 /*
-  esp3d
+  input.h -  input functions class
 
   Copyright (c) 2014 Luc Lebosse. All rights reserved.
 
@@ -14,16 +14,25 @@
   Lesser General Public License for more details.
 
   You should have received a copy of the GNU Lesser General Public
-  License along with this library; if not, write to the Free Software
+  License along with This code; if not, write to the Free Software
   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
+#ifndef _INPUT_H
+#define _INPUT_H
 
-#include "src/core/esp3d.h"
-// global variable
-Esp3D myesp3d;
+class Input {
+ public:
+  Input();
+  ~Input();
+  bool begin();
+  void end();
+  void handle();
+  bool started();
 
-// Setup
-void setup() { myesp3d.begin(); }
+ private:
+  bool _started;
+};
 
-// main loop
-void loop() { myesp3d.handle(); }
+extern Input esp3d_input;
+
+#endif  //_INPUT_H

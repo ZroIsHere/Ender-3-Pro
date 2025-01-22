@@ -1,5 +1,5 @@
 /*
-  esp3d
+  bmx280.h -  sensor functions class
 
   Copyright (c) 2014 Luc Lebosse. All rights reserved.
 
@@ -14,16 +14,27 @@
   Lesser General Public License for more details.
 
   You should have received a copy of the GNU Lesser General Public
-  License along with this library; if not, write to the Free Software
+  License along with This code; if not, write to the Free Software
   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-#include "src/core/esp3d.h"
-// global variable
-Esp3D myesp3d;
+#ifndef _BMX280_SENSOR_H
+#define _BMX280_SENSOR_H
+#include "sensor.h"
 
-// Setup
-void setup() { myesp3d.begin(); }
+class BMX280SensorDevice : ESP3DSensorDevice {
+ public:
+  BMX280SensorDevice();
+  ~BMX280SensorDevice();
+  bool begin();
+  void end();
+  bool isModelValid(uint8_t model);
+  uint8_t getIDFromString(const char *);
+  uint8_t nbType();
+  uint8_t GetModel(uint8_t i = 0);
+  const char *GetModelString(uint8_t i = 0);
+  const char *GetCurrentModelString();
+  const char *GetData();
+};
 
-// main loop
-void loop() { myesp3d.handle(); }
+#endif  //_BMX280_SENSOR_H

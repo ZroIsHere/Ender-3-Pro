@@ -1,5 +1,5 @@
 /*
-  esp3d
+  input.cpp -  input functions class
 
   Copyright (c) 2014 Luc Lebosse. All rights reserved.
 
@@ -14,16 +14,44 @@
   Lesser General Public License for more details.
 
   You should have received a copy of the GNU Lesser General Public
-  License along with this library; if not, write to the Free Software
+  License along with This code; if not, write to the Free Software
   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-#include "src/core/esp3d.h"
-// global variable
-Esp3D myesp3d;
+#include "../../include/esp3d_config.h"
+#if defined(INPUT_DEVICE)
+#include "../../core/esp3d_message.h"
+#include "../../core/esp3d_settings.h"
+#include "input.h"
 
-// Setup
-void setup() { myesp3d.begin(); }
+Input esp3d_input;
 
-// main loop
-void loop() { myesp3d.handle(); }
+Input::Input() { _started = false; }
+
+Input::~Input() { end(); }
+
+bool Input::begin() {
+  bool res = true;
+  _started = false;
+  if (!res) {
+    end();
+  }
+  _started = res;
+  return _started;
+}
+
+void Input::end() {
+  if (!_started) {
+    return;
+  }
+  _started = false;
+}
+
+bool Input::started() { return _started; }
+
+void Input::handle() {
+  if (_started) {
+  }
+}
+
+#endif  // INPUT_DEVICE

@@ -1,5 +1,5 @@
 /*
-  esp3d
+  authentication_level_types.h -  authentication functions class
 
   Copyright (c) 2014 Luc Lebosse. All rights reserved.
 
@@ -14,16 +14,17 @@
   Lesser General Public License for more details.
 
   You should have received a copy of the GNU Lesser General Public
-  License along with this library; if not, write to the Free Software
+  License along with This code; if not, write to the Free Software
   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-#include "src/core/esp3d.h"
-// global variable
-Esp3D myesp3d;
+#ifndef _AUTHENTICATION_LEVEL_TYPE_H
+#define _AUTHENTICATION_LEVEL_TYPE_H
+enum class ESP3DAuthenticationLevel : uint8_t {
+  guest = 0,
+  user = 1,
+  admin = 2,
+  not_authenticated,
+};
 
-// Setup
-void setup() { myesp3d.begin(); }
-
-// main loop
-void loop() { myesp3d.handle(); }
+#endif  //_AUTHENTICATION_LEVEL_TYPE_H

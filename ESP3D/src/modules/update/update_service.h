@@ -1,5 +1,5 @@
 /*
-  esp3d
+  update_service.h -  update services functions class
 
   Copyright (c) 2014 Luc Lebosse. All rights reserved.
 
@@ -14,16 +14,25 @@
   Lesser General Public License for more details.
 
   You should have received a copy of the GNU Lesser General Public
-  License along with this library; if not, write to the Free Software
+  License along with This code; if not, write to the Free Software
   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-#include "src/core/esp3d.h"
-// global variable
-Esp3D myesp3d;
+#ifndef _UPDATE_SERVICES_H
+#define _UPDATE_SERVICES_H
 
-// Setup
-void setup() { myesp3d.begin(); }
+class UpdateService {
+ public:
+  UpdateService();
+  ~UpdateService();
+  void handle();
+  bool begin();
+  void end();
 
-// main loop
-void loop() { myesp3d.handle(); }
+ private:
+  bool flash(const char* filename, int type);
+};
+
+extern UpdateService update_service;
+
+#endif  //_UPDATE_SERVICES_H

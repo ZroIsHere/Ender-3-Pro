@@ -1,5 +1,5 @@
 /*
-  esp3d
+  netservices.h -  network services functions class
 
   Copyright (c) 2014 Luc Lebosse. All rights reserved.
 
@@ -14,16 +14,23 @@
   Lesser General Public License for more details.
 
   You should have received a copy of the GNU Lesser General Public
-  License along with this library; if not, write to the Free Software
+  License along with This code; if not, write to the Free Software
   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-#include "src/core/esp3d.h"
-// global variable
-Esp3D myesp3d;
+#ifndef _NET_SERVICES_H
+#define _NET_SERVICES_H
 
-// Setup
-void setup() { myesp3d.begin(); }
+class NetServices {
+ public:
+  static bool begin();
+  static void end();
+  static void handle();
+  static bool started() { return _started; }
 
-// main loop
-void loop() { myesp3d.handle(); }
+ private:
+  static bool _started;
+  static bool _restart;
+};
+
+#endif  //_NET_SERVICES_H

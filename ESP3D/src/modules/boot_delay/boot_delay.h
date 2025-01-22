@@ -1,5 +1,5 @@
 /*
-  esp3d
+  boot_delay.h -  boot delay functions class
 
   Copyright (c) 2014 Luc Lebosse. All rights reserved.
 
@@ -14,16 +14,30 @@
   Lesser General Public License for more details.
 
   You should have received a copy of the GNU Lesser General Public
-  License along with this library; if not, write to the Free Software
+  License along with This code; if not, write to the Free Software
   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-#include "src/core/esp3d.h"
-// global variable
-Esp3D myesp3d;
+#ifndef _BOOT_DELAY_H
+#define _BOOT_DELAY_H
 
-// Setup
-void setup() { myesp3d.begin(); }
+#include <cstdint>
 
-// main loop
-void loop() { myesp3d.handle(); }
+typedef void(progress_t)(uint8_t percent);
+
+class BootDelay {
+ public:
+  BootDelay();
+  ~BootDelay();
+  bool begin();
+  void end();
+  void handle();
+  bool started();
+
+ private:
+  bool _started;
+  uint32_t _startdelay;
+  uint32_t _totalduration;
+};
+
+#endif  //_BOOT_DELAY_H

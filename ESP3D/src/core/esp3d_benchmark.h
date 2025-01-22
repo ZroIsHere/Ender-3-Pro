@@ -1,5 +1,5 @@
 /*
-  esp3d
+  benchmark_esp3d.h - esp3d benchmark functions
 
   Copyright (c) 2014 Luc Lebosse. All rights reserved.
 
@@ -14,16 +14,13 @@
   Lesser General Public License for more details.
 
   You should have received a copy of the GNU Lesser General Public
-  License along with this library; if not, write to the Free Software
+  License along with This code; if not, write to the Free Software
   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-#include "src/core/esp3d.h"
-// global variable
-Esp3D myesp3d;
-
-// Setup
-void setup() { myesp3d.begin(); }
-
-// main loop
-void loop() { myesp3d.handle(); }
+#ifndef _BENCHMARK_ESP3D_H
+#define _BENCHMARK_ESP3D_H
+extern void benchMark(const char* title, uint64_t bench_start,
+                      uint64_t bench_end, size_t bench_transfered);
+extern void report_esp3d(const char* format, ...);
+#endif  //_BENCHMARK_ESP3D_H
