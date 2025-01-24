@@ -36,12 +36,12 @@ void loop()
 {
     if (digitalRead(filamentRunOutPin) == LOW && !filamentRunOut){
       filamentRunOut = true;
-      Serial.println("M412 S1");
+      Serial.println("M412 H1");
     }
     if (digitalRead(filamentRunOutPin) == HIGH && filamentRunOut){
       filamentRunOut = false;
       delay(10000);
-      Serial.println("M412 S1");
+      Serial.println("M412 H1");
     }
     myesp3d.handle();
 }
