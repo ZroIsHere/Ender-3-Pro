@@ -31,7 +31,8 @@
 // If you are using our EZOut V1/V2 (connects to LCD header) filament sensor kit please follow the install guide
 // and then uncomment the #define EZOUT_ENABLE line below.
 // Do NOT ever connect our filament sensor without the supplied adapter board.
-//#define EZOUT_ENABLE
+#define EZOUT_ENABLE
+#define FIL_RUNOUT_PIN 29
 
 // EZABL Probe Mounts - Uncomment the mount you are using for your EZABL to enable EZABL support in the firmware.
 //#define CR10_OEM
@@ -61,7 +62,7 @@
 //===========================================================================
 
 // Probing Grid Points - If you want more or less EZABL probe points change the number below, use odd numbers. Total points is # times #.
-#define EZABL_POINTS 3
+#define EZABL_POINTS 5
 
 // Probe Edge - How far from the edge of the bed to probe from. Use 50 if using binder clips. This also sets the edge inset value for MANUAL_MESH_LEVELING.
 #define EZABL_PROBE_EDGE 35
@@ -119,7 +120,7 @@
   * If the probe is left of the nozzle the offset on X is NEGATIVE
   * If the probe is in front of the nozzle the offset on Y is NEGATIVE
   */
-  #define NOZZLE_TO_PROBE_OFFSET { 10, 10, 0 }
+  #define NOZZLE_TO_PROBE_OFFSET { -10, -10, 0 }
 #endif
 
 
@@ -191,10 +192,10 @@
 
 // Use your own printer name - Uncomment both lines
 #define CUSTOM_PRINTER_NAME
-#define USER_PRINTER_NAME "ZroIsHere"
+#define USER_PRINTER_NAME "Ender 3 Pro"
 
 // If your printer is homing to the endstops hard uncomment this to change the homing speed/divisor to make it less aggressive.
-#define SLOWER_HOMING
+//#define SLOWER_HOMING
 
 // Bed and Z Height Adjustments
 // If you need to make changes to your X, Y, and/or Z size on your printer for whatever reason you can uncomment the custom size/height line
@@ -273,7 +274,7 @@
 // You also need to uncomment #define CUSTOM_PROBE above and then enter in your offsets above in the CUSTOM PROBE section.
 #define BLTOUCH
 // Here is where you set your servo pin.
-//#define SERVO0_PIN 27
+#define SERVO0_PIN 27
 
 // MANUAL MESH LEVELING ----------------------------
 // If you want to use manual mesh leveling you can enable the below option. This is for generating a MANUAL mesh WITHOUT a probe. To change the mesh inset value change the EZABL_PROBE_EDGE setting above.
@@ -332,9 +333,9 @@
 #endif
 
 // Sanity Checks for melzi boards
-#if ENABLED(EZOUT_ENABLE) && ENABLED(BLTOUCH)
+/*#if ENABLED(EZOUT_ENABLE) && ENABLED(BLTOUCH)
   #error "You cannot use the BL Touch and EZOut Filament sensor together on this board."
-#endif
+#endif*/
 
 #if ENABLED(POWER_LOSS_RECOVERY) && ENABLED(LINEAR_ADVANCE)
   #error "Due to space restrictions on this board you cannot use POWER_LOSS_RECOVERY and LINEAR_ADVANCE together."

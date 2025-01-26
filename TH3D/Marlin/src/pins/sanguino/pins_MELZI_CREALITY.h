@@ -72,7 +72,8 @@
   #if SERVO0_PIN == BEEPER_PIN
     #undef BEEPER_PIN
   #endif
-#elif HAS_FILAMENT_SENSOR
+#endif
+#if HAS_FILAMENT_SENSOR
   #ifndef FIL_RUNOUT_PIN
     #if ENABLED(ENDER2)
       #define FIL_RUNOUT_PIN                  29
