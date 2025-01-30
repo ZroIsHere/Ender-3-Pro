@@ -46,7 +46,7 @@
 //#define TM3DAERO
 //#define TM3DAERO_EXTENDED
 //#define PETSFANG //This is the RIGHT mounted version - if using the left mount please use the CUSTOM_PROBE option.
-#define SPRITE_EXTRUDER_18MM_MOUNT // Mounts to the stock CRTouch bracket
+//#define SPRITE_EXTRUDER_18MM_MOUNT // Mounts to the stock CRTouch bracket
 #define CUSTOM_PROBE
 
 // Ender 5 - Leadscrew Setting
@@ -65,10 +65,10 @@
 #define EZABL_POINTS 5
 
 // Probe Edge - How far from the edge of the bed to probe from. Use 50 if using binder clips. This also sets the edge inset value for MANUAL_MESH_LEVELING.
-#define EZABL_PROBE_EDGE 35
+#define EZABL_PROBE_EDGE 50
 
 // Fast Probing - Works with most machines and all EZABL sensors (8mm/s)
-#define EZABL_FASTPROBE
+//#define EZABL_FASTPROBE
 
 // Superfast Probing - Only works with the EZABL Pro Sensors (15mm/s)
 //#define EZABL_SUPERFASTPROBE
@@ -120,7 +120,7 @@
   * If the probe is left of the nozzle the offset on X is NEGATIVE
   * If the probe is in front of the nozzle the offset on Y is NEGATIVE
   */
-  #define NOZZLE_TO_PROBE_OFFSET { -10, -10, 0 }
+  #define NOZZLE_TO_PROBE_OFFSET { -45, 0, 0 }
 #endif
 
 
